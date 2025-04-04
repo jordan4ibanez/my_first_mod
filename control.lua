@@ -88,8 +88,6 @@ local function the_ring_of_fire(player)
         y = position.y + (math.sin(rotation) * 30)
     }
 
-
-
     surface.create_entity({
         name = "flamethrower-fire-stream",
         position = position,
