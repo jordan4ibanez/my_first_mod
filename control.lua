@@ -19,6 +19,8 @@ script.on_event(defines.events.on_singleplayer_init, singleplayer_join)
 script.on_event(defines.events.on_player_joined_game, player_join)
 script.on_event(defines.events.on_player_left_game, player_leave)
 
+
+
 -- function entity_placed(event)
 --     ---@type LuaPlayer | nil
 --     local player = game.get_player(event.player_index)
