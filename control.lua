@@ -67,9 +67,35 @@ local function pollution_mess(player)
     player.surface.pollute(position, 10)
 end
 
+local rotation = 0
+
+---comment
+---@param player LuaPlayer
 local function the_ring_of_fire(player)
+    ---@type LuaSurface
     local surface = player.surface
     if not surface then return end
+    local position = player.position
+    if not position then return end
+
+    rotation = rotation + 0.2
+
+    position.x = position.x + (math.cos(rotation) * 1.2)
+    position.y = position.y + (math.sin(rotation) * 1.2)
+
+    local target_position = {
+        x = position.x + (math.cos(rotation) * 30),
+        y = position.y + (math.sin(rotation) * 30)
+    }
+
+
+
+    surface.create_entity({
+        name = "flamethrower-fire-stream",
+        position = position,
+        source_position = position,
+        target_position = target_position
+    })
 end
 
 local function on_tick()
